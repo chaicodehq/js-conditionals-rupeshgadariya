@@ -31,4 +31,21 @@
  */
 export function calculateTip(billAmount, serviceRating) {
   // Your code here
+  if (billAmount <= 0) return null;
+  if (!Number.isInteger(serviceRating) || serviceRating < 1 || serviceRating > 5) return null;
+
+  const tipPercentage = serviceRating * 5;
+
+  const tipAmount = Number((billAmount * tipPercentage / 100).toFixed(2));
+  const totalAmount = Number((billAmount + tipAmount).toFixed(2));
+
+  return {
+    tipPercentage,
+    tipAmount,
+    totalAmount
+  };
+
+  // Using AI this problem 😥😥 Qestion me return kya krna tha smjha me nhi aaya tha
+
+
 }
